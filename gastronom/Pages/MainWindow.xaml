@@ -25,6 +25,16 @@
                 <Label x:Name="lbl_UserName" Content="Не авторизован" HorizontalAlignment="Left" Margin="314,0,0,0" VerticalAlignment="Center" Width="154" FontSize="20" FontFamily="Great Vibes" Foreground="White"/>
                 <materialDesign:PackIcon Kind="Shop" Margin="30,0,0,0" Width="45" Height="44" Foreground="White" VerticalAlignment="Center"/>
                 <Label x:Name="lbl_Logo" Content="GASTRONOM" HorizontalAlignment="Left" Margin="75,10,0,0" VerticalAlignment="Top" Width="136" FontSize="20" FontFamily="Great Vibes" Foreground="White" FontWeight="Bold"/>
+                <Grid HorizontalAlignment="Right" Margin="0 0 100 0">
+                    <materialDesign:PackIcon Kind="Refresh" Margin="708,0,0,0" Width="30" Height="30" Foreground="White" VerticalAlignment="Center"/>
+                    <Label x:Name="lbl_UserName_Copy" Content="_____________________________________________________________________" HorizontalAlignment="Left" Margin="743,14,0,0" VerticalAlignment="Top" Width="313" FontSize="20" FontFamily="Great Vibes" Foreground="White"/>
+                    <materialDesign:PackIcon Kind="BarcodeScanner" Margin="754,0,0,0" Width="30" Height="30" Foreground="White" VerticalAlignment="Center"/>
+                    <materialDesign:PackIcon Kind="Check" Margin="789,0,0,0" Width="30" Height="30" Foreground="White" VerticalAlignment="Center"/>
+                    <materialDesign:PackIcon Kind="CastConnected" Margin="856,0,0,0" Width="30" Height="30" Foreground="White" VerticalAlignment="Center"/>
+                    <materialDesign:PackIcon Kind="Check" Margin="891,0,0,0" Width="30" Height="30" Foreground="White" VerticalAlignment="Center"/>
+                    <materialDesign:PackIcon Kind="Cloud" Margin="962,0,0,0" Width="30" Height="30" Foreground="White" VerticalAlignment="Center"/>
+                    <materialDesign:PackIcon Kind="Check" Margin="997,0,0,0" Width="30" Height="30" Foreground="White" VerticalAlignment="Center"/>
+                </Grid>
             </Grid>
         </materialDesign:ColorZone>
         <Grid HorizontalAlignment="Stretch" Grid.Row="1" Background="#5A68B1">
@@ -34,6 +44,33 @@
                 <StackPanel x:Name="Menu" Margin="10"/>
             </ScrollViewer>
         </Grid>
-        <StackPanel x:Name="StackPanelMain" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch"/>
+        <StackPanel x:Name="StackPanelMain" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+            <Grid HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Width="350">
+                        <Image Source="Images/ICON4801.png" Width="300" Height="300" VerticalAlignment="Top" Margin="30" Stretch="Fill" />
+                    </StackPanel>
+                    <StackPanel Width="350">
+                        <StackPanel Margin="20 20 20 0">
+                            <TextBlock Text="Авторизація" Margin="20" Foreground="#9A7BFF" TextAlignment="Center" FontSize="38" FontFamily="Great Vibes"></TextBlock>
+                            <StackPanel Orientation="Horizontal" Margin="10"/>
+                            <StackPanel Orientation="Horizontal" Margin="10">
+                                <materialDesign:PackIcon Kind="Lock" Width="25" Height="25" Foreground="#9A7BFF"/>
+                                <PasswordBox x:Name="txtPassword" Margin="10 0" materialDesign:HintAssist.Hint="********" Foreground="#6E7073" Width="250" BorderBrush="#9A7BFF" CaretBrush="#9A7BFF" SelectionBrush="#9A7BFF" />
+                            </StackPanel>
+                            <StackPanel Margin="10" HorizontalAlignment="Center">
+                                <Button Width="100" Height="40" Style="{StaticResource MaterialDesignRaisedButton}" 
+                         materialDesign:ButtonAssist.CornerRadius="10" BorderThickness="2" BorderBrush="#9A7BFF"
+                         Background="#9A7BFF" Foreground="White" ToolTip="Увійти в акаунт" x:Name="btnLogin" Click="btnLogin_Click"  Content="Увійти">
+                                </Button>
+                            </StackPanel>
+                        </StackPanel>
+                        <TextBlock Margin="130 5 10 0" Foreground="#9A7BFF">
+                    <Hyperlink Foreground="#9A7BFF" >Забули пароль?</Hyperlink>
+                        </TextBlock>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
     </Grid>
 </Window>
