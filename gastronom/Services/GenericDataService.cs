@@ -12,7 +12,7 @@ namespace gastronom.Services
     {
         private readonly DbContextFactory _contextFactory;
 
-        public GenericDataService(DbContextFactory contextFactory   )
+        public GenericDataService(DbContextFactory contextFactory)
         {
             _contextFactory = contextFactory;
         }
@@ -28,7 +28,7 @@ namespace gastronom.Services
             }
         }
 
-        public async Task<bool> Delete(int id)
+        public async Task<bool> Delete(long id)
         {
             using (DatabaseContext context = _contextFactory.CreateDbContext())
             {
@@ -40,7 +40,7 @@ namespace gastronom.Services
             }
         }
 
-        public async Task<T> Get(int id)
+        public async Task<T> Get(long id)
         {
             using (DatabaseContext context = _contextFactory.CreateDbContext())
             {
@@ -61,7 +61,7 @@ namespace gastronom.Services
             }
         }
 
-        public async Task<T> Update(int id, T entity)
+        public async Task<T> Update(long id, T entity)
         {
             using (DatabaseContext context = _contextFactory.CreateDbContext())
             {

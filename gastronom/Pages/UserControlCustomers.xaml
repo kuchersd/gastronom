@@ -3,48 +3,86 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:DropDownMenu" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <StackPanel Orientation="Horizontal">
-            <StackPanel Width="800">
-                <StackPanel Margin="20 20 20 0">
-                    <TextBlock Text="Create new OSBB" Margin="20" Foreground="#9A7BFF" TextAlignment="Center" FontSize="38" FontFamily="Great Vibes"/>
-                    <StackPanel Orientation="Horizontal" Margin="10">
-                        <materialDesign:PackIcon Kind="SignText" Width="25" Height="25" Foreground="#9A7BFF"/>
-                        <TextBox x:Name="txtOSBBName" Margin="10 0" materialDesign:HintAssist.Hint="Enter OSBB name" Foreground="#6E7073" Width="250" BorderBrush="#9A7BFF" CaretBrush="#9A7BFF" SelectionBrush="#9A7BFF" />
+             xmlns:local="clr-namespace:DropDownMenu" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" Loaded="UserControl_Loaded" 
+             
+             >
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Card.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.CheckBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Flipper.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Popupbox.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Width="1120">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
 
-                        <materialDesign:PackIcon Kind="User" Margin="150 0 0 0" Width="25" Height="25" Foreground="#9A7BFF"/>
-                        <TextBox x:Name="txtUsername" Margin="10 0 0 0" materialDesign:HintAssist.Hint="Full name of OSBB's director" Foreground="#6E7073" Width="250" BorderBrush="#9A7BFF" CaretBrush="#9A7BFF" SelectionBrush="#9A7BFF" />
-                    </StackPanel>
-
-                    <StackPanel Orientation="Horizontal" Margin="10">
-                        <materialDesign:PackIcon Kind="Square" Width="25" Height="25" Foreground="#9A7BFF"/>
-                        <TextBox x:Name="txtLivingSquare" Margin="10 0" materialDesign:HintAssist.Hint="Living square" Foreground="#6E7073" Width="250" BorderBrush="#9A7BFF" CaretBrush="#9A7BFF" SelectionBrush="#9A7BFF" />
-                        <materialDesign:PackIcon Kind="Money" Margin="150 0 0 0" Width="25" Height="25" Foreground="#9A7BFF"/>
-                        <TextBox x:Name="txtDetails" Margin="10 0 0 0" materialDesign:HintAssist.Hint="Details (ЄРДПОУ)" Foreground="#6E7073" Width="250" BorderBrush="#9A7BFF" CaretBrush="#9A7BFF" SelectionBrush="#9A7BFF" />
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="10">
-                        <materialDesign:PackIcon Kind="SquareOff" Width="25" Height="25" Foreground="#9A7BFF"/>
-                        <TextBox x:Name="txtNonLivingSquare" Margin="10 0" materialDesign:HintAssist.Hint="Non living square" Foreground="#6E7073" Width="250" BorderBrush="#9A7BFF" CaretBrush="#9A7BFF" SelectionBrush="#9A7BFF" />
-                        <materialDesign:PackIcon Kind="SquareBrackets" Margin="150 0 0 0" Width="25" Height="25" Foreground="#9A7BFF"/>
-                        <TextBox x:Name="txtAdditionalSquare" Margin="10 0 0 0" materialDesign:HintAssist.Hint="Additional square" Foreground="#6E7073" Width="250" BorderBrush="#9A7BFF" CaretBrush="#9A7BFF" SelectionBrush="#9A7BFF" />
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 20 0 0">
-                        <materialDesign:PackIcon Kind="Calculator" Width="25" Height="25" Foreground="#9A7BFF"/>
-                        <TextBox x:Name="txtCountOfApartments" materialDesign:HintAssist.Hint="Count of apartments" Foreground="#6E7073" Width="250" BorderBrush="#9A7BFF" CaretBrush="#9A7BFF" SelectionBrush="#9A7BFF" />
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10"/>
-                    <StackPanel Margin="10" HorizontalAlignment="Center"/>
-
+        <StackPanel x:Name="stackmain" Height="700" Width="788" Orientation="Horizontal" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
+            <StackPanel  Width="1120">
+                <StackPanel Height="700" Width="788" HorizontalAlignment="Left">
+                    <TextBlock Text="Каса" Margin="10" Foreground="#9A7BFF" TextAlignment="Left" FontSize="38" FontFamily="Great Vibes"/>
+                    <ListView ItemsSource="{Binding Items1}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn DisplayMemberBinding="{Binding Code}" Header="Код" Width="150"/>
+                                <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Назва" Width="250"/>
+                                <GridViewColumn DisplayMemberBinding="{Binding Description}" Header="Додатково" Width="200"/>
+                                <GridViewColumn Header="Кількість">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <ComboBox Width="100">
+                                                <ComboBoxItem Content="Test"/>
+                                                <ComboBoxItem Content="Test2"/>
+                                                <ComboBoxItem Content="Test3"/>
+                                            </ComboBox>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
                 </StackPanel>
-                <Button Height="40" Width="200" 
-                            materialDesign:ButtonAssist.CornerRadius="10" BorderThickness="2" BorderBrush="#9A7BFF"
-                            Background="#9A7BFF" Foreground="White" ToolTip="Create new OSBB" x:Name="btnCreateOSBB" Click="btnCreateOSBB_ClickAsync" Content="Create new OSBB" Margin="46,0,53,0"/>
-               
+
+
             </StackPanel>
-            <StackPanel Width="100"/>
         </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Bottom">
+                <materialDesign:PackIcon Kind="Barcode" Width="25" Height="25" Foreground="#9A7BFF" VerticalAlignment="Center"/>
+                <TextBox x:Name="txtBarCode" materialDesign:HintAssist.Hint="Штрих-код" FontSize="16" HorizontalContentAlignment="Center" Foreground="#6E7073" Width="310" BorderBrush="#9A7BFF" CaretBrush="#9A7BFF" SelectionBrush="#9A7BFF" Height="40"/>
+                <Button Height="28" Width="150" 
+                            materialDesign:ButtonAssist.CornerRadius="10" BorderThickness="2" BorderBrush="#9A7BFF"
+                            Background="#9A7BFF" Foreground="White" ToolTip="Очистити товари" x:Name="btnClearTail" Click="btnCreateOSBB_ClickAsync" Content="Очистити" Margin="46,0,53,0"/>
+                <Button Height="28" Width="150" 
+                            materialDesign:ButtonAssist.CornerRadius="10" BorderThickness="2" BorderBrush="#7cb342"
+                            Background="#7cb342" Foreground="White" ToolTip="Прийняти" x:Name="btnAccept" Click="btnCreateOSBB_ClickAsync" Content="Прийняти" Margin="10,0,0,0"/>
+
+            </StackPanel>
+        <Border BorderBrush="#9A7BFF" BorderThickness="2" CornerRadius="8,8,3,3" Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="1" Grid.RowSpan="2" Margin="0 5 15 0" Width="320" HorizontalAlignment="Right">
+            <StackPanel>
+                <materialDesign:Card
+                    Background="#7cb342"
+                    Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
+                    Width="260"
+                    Padding="8"
+                    UniformCornerRadius="6">
+                    <TextBlock
+                        TextWrapping="Wrap"
+                        Text="You can adjust the corner radius"/>
+                </materialDesign:Card>
+            </StackPanel>
+        </Border>
     </Grid>
 </UserControl>

@@ -9,12 +9,12 @@ namespace gastronom.Services
     {
         Task<IEnumerable<T>> GetAll();
 
-        Task<T> Get(int id);
+        Task<T> Get(long id);
 
         Task<T> Create(T entity);
 
-        Task<T> Update(int id, T entity);
+        Task<T> Update(long id, T entity);
 
-        Task<bool> Delete(int id);
+        Task<bool> Delete(long id);
     }
 }

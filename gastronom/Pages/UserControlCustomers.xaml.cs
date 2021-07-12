@@ -13,12 +13,20 @@ namespace DropDownMenu
         public UserControlCustomers()
         {
             InitializeComponent();
+            //
         }
        
 
-        private async void btnCreateOSBB_ClickAsync(object sender, RoutedEventArgs e)
+        private void btnCreateOSBB_ClickAsync(object sender, RoutedEventArgs e)
         {
             
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            //Height = System.Windows.SystemParameters.PrimaryScreenHeight;
+
+            //Width = System.Windows.SystemParameters.PrimaryScreenWidth;
         }
     }
 }

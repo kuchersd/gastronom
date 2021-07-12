@@ -19,21 +19,38 @@
 
         <materialDesign:ColorZone Mode="PrimaryMid" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Background="#5A68B1">
             <Grid>
-
-                <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" HorizontalAlignment="Right" Margin="10"/>
+                <Button
+                        Style="{StaticResource MaterialDesignIconButton}"
+                        Foreground="White"
+                        ToolTip="MaterialDesignIconButton"
+                        IsEnabled="True"
+                        HorizontalAlignment="Right"
+                        Click="ButtonClose_Click">
+                    <materialDesign:PackIcon Kind="Close"/>
+                </Button>
                 <materialDesign:PackIcon Kind="User" Margin="279,0,0,0" Width="30" Height="30" Foreground="White" VerticalAlignment="Center"/>
                 <Label x:Name="lbl_UserName" Content="Не авторизован" HorizontalAlignment="Left" Margin="314,0,0,0" VerticalAlignment="Center" Width="154" FontSize="20" FontFamily="Great Vibes" Foreground="White"/>
                 <materialDesign:PackIcon Kind="Shop" Margin="30,0,0,0" Width="45" Height="44" Foreground="White" VerticalAlignment="Center"/>
                 <Label x:Name="lbl_Logo" Content="GASTRONOM" HorizontalAlignment="Left" Margin="75,10,0,0" VerticalAlignment="Top" Width="136" FontSize="20" FontFamily="Great Vibes" Foreground="White" FontWeight="Bold"/>
                 <Grid HorizontalAlignment="Right" Margin="0 0 100 0">
-                    <materialDesign:PackIcon Kind="Refresh" Margin="708,0,0,0" Width="30" Height="30" Foreground="White" VerticalAlignment="Center"/>
+                    <Button
+                        Style="{StaticResource MaterialDesignIconButton}"
+                        Foreground="White"
+                        ToolTip="MaterialDesignIconButton"
+                        IsEnabled="True"
+                        Margin="420 0 0 0"
+                        Height="40"
+                        Width="40"
+                        Click="ButtonRefresh_Click">
+                        <materialDesign:PackIcon Kind="Refresh"/>
+                    </Button>
                     <Label x:Name="lbl_UserName_Copy" Content="_____________________________________________________________________" HorizontalAlignment="Left" Margin="743,14,0,0" VerticalAlignment="Top" Width="313" FontSize="20" FontFamily="Great Vibes" Foreground="White"/>
                     <materialDesign:PackIcon Kind="BarcodeScanner" Margin="754,0,0,0" Width="30" Height="30" Foreground="White" VerticalAlignment="Center"/>
-                    <materialDesign:PackIcon Kind="Check" Margin="789,0,0,0" Width="30" Height="30" Foreground="White" VerticalAlignment="Center"/>
+                    <materialDesign:PackIcon x:Name="ScannerStatus" Kind="Close" Margin="789,0,0,0" Width="30" Height="30" Foreground="White" VerticalAlignment="Center"/>
                     <materialDesign:PackIcon Kind="CastConnected" Margin="856,0,0,0" Width="30" Height="30" Foreground="White" VerticalAlignment="Center"/>
-                    <materialDesign:PackIcon Kind="Check" Margin="891,0,0,0" Width="30" Height="30" Foreground="White" VerticalAlignment="Center"/>
+                    <materialDesign:PackIcon Name="InternetStatus" Kind="Close" Margin="891,0,0,0" Width="30" Height="30" Foreground="White" VerticalAlignment="Center"/>
                     <materialDesign:PackIcon Kind="Cloud" Margin="962,0,0,0" Width="30" Height="30" Foreground="White" VerticalAlignment="Center"/>
-                    <materialDesign:PackIcon Kind="Check" Margin="997,0,0,0" Width="30" Height="30" Foreground="White" VerticalAlignment="Center"/>
+                    <materialDesign:PackIcon Name="CloudStatus" Kind="Close" Margin="997,0,0,0" Width="30" Height="30" Foreground="White" VerticalAlignment="Center"/>
                 </Grid>
             </Grid>
         </materialDesign:ColorZone>
@@ -41,10 +58,10 @@
 
 
             <ScrollViewer HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="1">
-                <StackPanel x:Name="Menu" Margin="10"/>
+                <StackPanel x:Name="Menu" IsEnabled="False" Margin="10"/>
             </ScrollViewer>
         </Grid>
-        <StackPanel x:Name="StackPanelMain" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+        <StackPanel x:Name="StackPanelMain" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Height="700" Orientation="Horizontal" HorizontalAlignment="Stretch">
             <Grid HorizontalAlignment="Center">
                 <StackPanel Orientation="Horizontal">
                     <StackPanel Width="350">
@@ -53,6 +70,7 @@
                     <StackPanel Width="350">
                         <StackPanel Margin="20 20 20 0">
                             <TextBlock Text="Авторизація" Margin="20" Foreground="#9A7BFF" TextAlignment="Center" FontSize="38" FontFamily="Great Vibes"></TextBlock>
+                            <TextBlock x:Name="lblWrongPinCode" Text="Неправильний код." Foreground="Red" Margin="-10" TextAlignment="Center" FontSize="12" FontFamily="Great Vibes" Visibility="Hidden"></TextBlock>
                             <StackPanel Orientation="Horizontal" Margin="10"/>
                             <StackPanel Orientation="Horizontal" Margin="10">
                                 <materialDesign:PackIcon Kind="Lock" Width="25" Height="25" Foreground="#9A7BFF"/>

@@ -11,6 +11,8 @@ namespace gastronom.Models
 
         public DbSet<Account> Accounts {get;set;}
 
+        public DbSet<Products> Products { get; set; }
+
         public DatabaseContext(DbContextOptions options) : base(options) { }
 
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
